@@ -6,13 +6,14 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 
 function Item(props) {
-  const { text } = props;
+  const { text, active } = props;
+  const decoratedText = active ? text : <s>{text}</s>;
   return (
-    <Box display="flex">
+    <Box display="flex" my={0.5} width="100%">
       <Checkbox
-        checked
+        checked={!active}
       />
-      <Box width={600} my="auto"><Typography variant="button">{text}</Typography></Box>
+      <Box width="100%" my="auto"><Typography variant="button">{decoratedText}</Typography></Box>
       <IconButton>
         <DeleteIcon />
       </IconButton>
