@@ -8,6 +8,7 @@ function App() {
     { text: 'Hello, world', active: true, id: 1 },
     { text: 'Pet my dog', active: false, id: 2 },
     { text: 'Wash dishes', active: false, id: 3 },
+    { text: 'Do homework', active: true, id: 4 },
   ];
   return (
     <Container maxWidth="sm">
