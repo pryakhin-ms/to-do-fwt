@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Wash dishes",
+      "active": true
+    },
+    {
+      "text": "Do homework",
+      "active": true,
+      "id": 2
+    },
+    {
+      "text": "Pet my dog",
+      "active": true,
+      "id": 3
+    },
+    {
+      "text": "Visit my grandparents",
+      "active": true,
+      "id": 4
+    }
+  ]
+}
