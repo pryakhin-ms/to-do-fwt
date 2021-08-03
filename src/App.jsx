@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import List from './List';
 
 function App() {
-  const taskList = [
-    { text: 'Hello, world', active: true, id: 1 },
-    { text: 'Pet my dog', active: false, id: 2 },
-    { text: 'Wash dishes', active: false, id: 3 },
-    { text: 'Do homework', active: true, id: 4 },
-  ];
+  const { API_URL } = process.env;
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setTasks(response.data);
+        // console.log(response.data);
+      } catch (e) {
+        // console.log('!!!!!!!!!!!!!!!!!', e.name + ':' + e.message);
+      }
+    };
+    fetchTasks();
+  }, []);
   return (
     <Container maxWidth="sm">
       <Paper>
-        <List taskList={taskList} />
+        <List taskList={tasks} />
       </Paper>
     </Container>
   );
