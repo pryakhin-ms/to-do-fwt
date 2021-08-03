@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: ['@babel/polyfill', './src/index.jsx'],
   mode: 'development',
   module: {
     rules: [
@@ -11,7 +11,9 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        options: { presets: ['@babel/preset-env'] },
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.css$/,
