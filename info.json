@@ -3,21 +3,21 @@
     {
       "id": 1,
       "text": "Wash dishes",
-      "active": true
+      "active": false
     },
     {
       "text": "Do homework",
-      "active": true,
+      "active": false,
       "id": 2
     },
     {
       "text": "Pet my dog",
-      "active": true,
+      "active": false,
       "id": 3
     },
     {
       "text": "Visit my grandparents",
-      "active": true,
+      "active": false,
       "id": 4
     }
   ]
