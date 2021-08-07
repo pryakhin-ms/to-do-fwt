@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import Form from './Form';
 import List from './List';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   return (
     <Container maxWidth="sm">
       <Paper>
+        <Form />
         <List taskList={tasks} toggleTask={toggleTask} />
       </Paper>
     </Container>
