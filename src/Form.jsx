@@ -32,10 +32,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Form() {
+function Form(props) {
+  const { addTask } = props;
   const classes = useStyles();
   return (
-    <form className={classes.root}>
+    <form className={classes.root} onSubmit={addTask}>
       <TextField size="small" id="outlined-basic" label="Введите задачу" variant="outlined" />
       <Button variant="outlined" disabled={false} type="submit" size="medium">
         ADD

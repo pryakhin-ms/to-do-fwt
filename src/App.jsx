@@ -23,6 +23,23 @@ function App() {
     fetchTasks();
   }, []);
 
+  // Функция для добавления новых задач
+  const addTask = async (e) => {
+    e.preventDefault();
+    const text = e.target.elements[0].value;
+    if (!text) {
+      return;
+    }
+    try {
+      await axios.post(API_URL, { text, active: true });
+      const response = await axios.get(API_URL);
+      setTasks(response.data);
+      e.target.reset();
+    // eslint-disable-next-line no-empty
+    } catch (err) {
+    }
+  };
+
   // Функция переключения состояния задачи (active/inactive)
   const toggleTask = (id, active) => async () => {
     try {
@@ -37,7 +54,7 @@ function App() {
   return (
     <Container maxWidth="sm">
       <Paper>
-        <Form />
+        <Form addTask={addTask} />
         <List taskList={tasks} toggleTask={toggleTask} />
       </Paper>
     </Container>
