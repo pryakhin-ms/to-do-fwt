@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 function Item(props) {
   const {
-    text, active, toggleTask, id,
+    text, active, toggleTask, id, deleteTask,
   } = props;
   const decoratedText = active ? text : <s>{text}</s>;
   return (
@@ -17,7 +17,7 @@ function Item(props) {
         onClick={toggleTask(id, active)}
       />
       <Box width="100%" my="auto"><Typography variant="button">{decoratedText}</Typography></Box>
-      <IconButton>
+      <IconButton onClick={deleteTask(id)}>
         <DeleteIcon />
       </IconButton>
     </Box>

@@ -40,6 +40,17 @@ function App() {
     }
   };
 
+  const deleteTask = (id) => async (e) => {
+    e.preventDefault();
+    try {
+      await axios.delete(getTaskUrl(id));
+      const response = await axios.get('http://localhost:4000/tasks');
+      setTasks(response.data);
+    // eslint-disable-next-line no-empty
+    } catch (err) {
+    }
+  };
+
   // Функция переключения состояния задачи (active/inactive)
   const toggleTask = (id, active) => async () => {
     try {
@@ -55,7 +66,7 @@ function App() {
     <Container maxWidth="sm">
       <Paper>
         <Form addTask={addTask} />
-        <List taskList={tasks} toggleTask={toggleTask} />
+        <List taskList={tasks} deleteTask={deleteTask} toggleTask={toggleTask} />
       </Paper>
     </Container>
   );
