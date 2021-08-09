@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Wash dishes",
+      "text": "Wash my car",
       "active": false
     },
     {
@@ -19,6 +19,16 @@
       "text": "Visit my grandparents",
       "active": false,
       "id": 4
+    },
+    {
+      "text": "Repair my car",
+      "active": false,
+      "id": 5
+    },
+    {
+      "text": "Join the FRAMEWORK.TEAM",
+      "active": true,
+      "id": 6
     }
   ]
 }
