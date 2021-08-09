@@ -32,7 +32,7 @@ function Item(props) {
         onClick={toggleTask(id, active)}
         disabled={isEditing}
       />
-      <Box width="100%" my="auto">
+      <Box width="100%" my="auto" display="flex" flexWrap="wrap">
         {!isEditing && <Typography variant="button" onClick={() => changeEditingTask(id)}>{decoratedText}</Typography>}
         {isEditing
         && changeTaskForm}
