@@ -19,7 +19,7 @@ function Item(props) {
   };
   const changeTaskForm = (
     <form onSubmit={handleUpdateTask(id, text)}>
-      <TextField id="standard-basic" defaultValue={text} autoFocus />
+      <TextField id="standard-basic" defaultValue={text} autoFocus margin="dense" />
       <IconButton type="submit">
         <CheckOutlinedIcon />
       </IconButton>
