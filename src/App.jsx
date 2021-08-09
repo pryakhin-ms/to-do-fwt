@@ -44,7 +44,7 @@ function App() {
     e.preventDefault();
     try {
       await axios.delete(getTaskUrl(id));
-      const response = await axios.get('http://localhost:4000/tasks');
+      const response = await axios.get(API_URL);
       setTasks(response.data);
     // eslint-disable-next-line no-empty
     } catch (err) {
@@ -62,11 +62,31 @@ function App() {
     }
   };
 
+  const updateTask = (id, currentTaskText) => async (e) => {
+    e.preventDefault();
+    const text = e.target.elements[0].value;
+    if (!text || currentTaskText === text) {
+      return;
+    }
+    try {
+      await axios.patch(getTaskUrl(id), { text });
+      const response1 = await axios.get(API_URL);
+      setTasks(response1.data);
+    // eslint-disable-next-line no-empty
+    } catch (err) {
+    }
+  };
+
   return (
     <Container maxWidth="sm">
       <Paper>
         <Form addTask={addTask} />
-        <List taskList={tasks} deleteTask={deleteTask} toggleTask={toggleTask} />
+        <List
+          taskList={tasks}
+          deleteTask={deleteTask}
+          toggleTask={toggleTask}
+          updateTask={updateTask}
+        />
       </Paper>
     </Container>
   );

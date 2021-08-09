@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Item from './Item';
 
 function List(props) {
-  const { taskList, toggleTask, deleteTask } = props;
+  const [editingTask, setEditingTask] = useState(null);
+  const {
+    taskList, toggleTask, deleteTask, updateTask,
+  } = props;
+
+  const changeEditingTask = (id) => {
+    setEditingTask(id);
+  };
+
   const activeTasks = taskList
     .filter((task) => task.active)
     .sort((task1, task2) => task2.id - task1.id);
@@ -20,6 +28,9 @@ function List(props) {
           key={id}
           toggleTask={toggleTask}
           deleteTask={deleteTask}
+          changeEditingTask={changeEditingTask}
+          isEditing={editingTask === id}
+          updateTask={updateTask}
         />
       );
     })
