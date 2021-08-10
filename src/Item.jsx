@@ -11,12 +11,21 @@ function Item(props) {
   const {
     text, active, toggleTask, id, deleteTask, changeEditingTask, isEditing, updateTask,
   } = props;
+
+  // Определяется стиль текста на основе статуса задачи (активна/неактивна)
   const decoratedText = active ? text : <s>{text}</s>;
+
   const handleUpdateTask = (taskId, currentTaskText) => async (e) => {
     e.preventDefault();
+    // При сабмите формы измененя задачи в компоненте List
+    // устанавливается id редактируемой задачи как null
     changeEditingTask(null);
+    // Вызов функции, которая обновляет задачу на сервере
+    // и обновляет список задач на уровне App
     await updateTask(taskId, currentTaskText)(e);
   };
+
+  // Определение формы изменения текста задачи
   const changeTaskForm = (
     <form onSubmit={handleUpdateTask(id, text)}>
       <TextField id="standard-basic" defaultValue={text} autoFocus margin="dense" />
@@ -25,6 +34,7 @@ function Item(props) {
       </IconButton>
     </form>
   );
+
   return (
     <Box display="flex" my={0.5} width="100%">
       <Checkbox

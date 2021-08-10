@@ -7,6 +7,8 @@ function List(props) {
     taskList, toggleTask, deleteTask, updateTask,
   } = props;
 
+  // Функция устанавливает в состоянии id задачи, которая редактируется в данный момент.
+  // По умолчанию null
   const changeEditingTask = (id) => {
     setEditingTask(id);
   };
